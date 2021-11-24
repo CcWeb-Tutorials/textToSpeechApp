@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+<style>
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	background-color: #01c984;
+}
+
+.container{
+	width: 400px;
+	padding: 20px;
+	background: #fff;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 70px);
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+}
+input,
+textarea{
+	padding: 12px;
+	margin: 20px;
+	resize: none;
+	outline: none;
+	border: 2px solid #01c984;
+	border-radius: 10px;
+	font-size: 17px;
+}
+
+.btn{
+	background: #01c984;
+	color: #fff;
+}
+
+.btn:hover{
+	background: #01a784;
+	border-color: #01a784;
+}
+
+</style>
+
+</head>
+<body>
+<div class="container">
+	<textarea rows="10" id="msgField" placeholder="Enter text"></textarea>
+	<input type="button" value="Convert to Speech" class="btn">
+</div>
+
+<script>
+	let textarea = document.getElementById('msgField');
+	let button = document.querySelector('.btn');
+
+	function textToSpeech(text) {
+		let utterance = new SpeechSynthesisUtterance(text);
+		speechSynthesis.speak(utterance);
+	}
+
+	button.addEventListener('click', e => {
+		e.preventDefault();
+		if(textarea.value !== '') {
+			textToSpeech(textarea.value);
+		}
+	});
+</script>
+</body>
+</html>
