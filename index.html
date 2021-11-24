@@ -3,17 +3,22 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
+	<title>Text to Speech app</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 <style>
 
 *{
 	padding: 0;
 	margin: 0;
+	text-decoration: none;
 }
 
 body{
 	background-color: #01c984;
+	font-family: 'Roboto', sans-serif;
 }
 
 .container{
@@ -26,6 +31,11 @@ body{
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
+}
+
+.container p{
+	text-align: center;
+	font-size: 17px;
 }
 input,
 textarea{
@@ -86,6 +96,7 @@ textarea::-webkit-scrollbar{
 <div class="container">
 	<textarea rows="8" id="msgField" placeholder="Enter text" required></textarea>
 	<input type="button" value="Convert to Speech" class="btn">
+	<p>created by <a href="https://web.facebook.com/luckyCodesEasyTuts/" target="_blank">luckyCodes</a></p>
 </div>
 
 <script>
