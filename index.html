@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title></title>
 
-
 <style>
 
 *{
@@ -39,6 +38,16 @@ textarea{
 	font-size: 17px;
 }
 
+textarea:is(:focus, :valid) {
+	border-color: #01b456;
+	padding: 14px;
+	border-width: 2px;
+}
+
+textarea::-webkit-scrollbar{
+	width: 0px;
+}
+
 .btn{
 	background: #01c984;
 	color: #fff;
@@ -57,7 +66,16 @@ textarea{
 
 @media only screen and (max-width: 360px) {
 	.container{
-		width: 250px;
+		width: 290px;
+	}
+
+@media only screen and (max-width: 350px) {
+	.container{
+		width: 70%;
+	}
+
+	.btn{
+		font-size: 12px;
 	}
 }
 
@@ -66,12 +84,12 @@ textarea{
 </head>
 <body>
 <div class="container">
-	<textarea rows="10" id="msgField" placeholder="Enter text"></textarea>
+	<textarea rows="8" id="msgField" placeholder="Enter text" required></textarea>
 	<input type="button" value="Convert to Speech" class="btn">
 </div>
 
 <script>
-	let textarea = document.getElementById('msgField');
+	let textarea = document.querySelector('textarea');
 	let button = document.querySelector('.btn');
 
 	function textToSpeech(text) {
@@ -85,6 +103,7 @@ textarea{
 			textToSpeech(textarea.value);
 		}
 	});
+
 </script>
 </body>
 </html>
